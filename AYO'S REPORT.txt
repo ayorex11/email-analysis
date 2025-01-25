@@ -1,0 +1,69 @@
+Headers
+======================================
+Date: Wed, 10 Apr 2019
+Subject: You've got 1 new message [REF: 8]
+
+To: smith@technicalsolutions.com
+From: CIBC-Banking.Service.Email.8@caib.com
+
+Reply-To: myaccount@secure-cibc.com
+Return-Path: meztaz.logocec8@caib.com
+
+Sender IP: 190.6.201.67
+Resolve Host:mail.ip.gob.hn
+
+Message-ID:20190410174637.44CDCC8B58@mail.ip.gob.hn
+
+
+URLs
+======================================
+http://app.e.royalmail.com/e/es?s=451761973&e=102011&elqTrackId=78D8A052C380BCBFF284D754BEBE9730&elq=29631e61f5464684a81212b3091d9419&elqaid=494&elqat=1
+/e/ref.ico
+http://satole.com/conve/index.php
+
+Attachments
+======================================
+Attachment Name:NONE
+MD5:NONE
+SHA1:NONE
+SHA256:NONE
+
+
+Description
+======================================
+This is an email sent to smith@technicalsolutions.com claiming to be from the bank CIBC.
+The email claims that there is an urgent issue on the user's account and that they should click on the link so that the issue might be rectified.
+
+
+Artifact Analysis
+======================================
+Sender Analysis:
+The sender email CIBC-Banking.Service.Email.8@caib.com is from an unverified email server "caib.com"
+The SPF, DKIM and DMARC checks also failed and in the email header we saw this message: "Received-SPF: Fail (protection.outlook.com: domain of caib.com does not
+ designate 190.6.201.67 as permitted sender)"
+This claims that in the DNS of the Domain and SMTP the IP address of the sender 190.6.201.67 is not permitted to send emails on behalf of the domain.
+
+
+URL Analysis:
+The two main emails attached http://app.e.royalmail.com/e/es?s=451761973&e=102011&elqTrackId=78D8A052C380BCBFF284D754BEBE9730&elq=29631e61f5464684a81212b3091d9419&elqaid=494&elqat=1 and 
+http://satole.com/conve/index.php are highly suspicious because:
+A. the prefix is http which is an unsecure applicaion layer protocol that reveals credentials during transmission
+B. Unneccessarily long url affixed to the end of the main domain url
+
+
+Attachment Analysis:
+
+NONE
+
+Verdict
+======================================
+This email is an attempted phishing attack that aims to steal user's bank credentials using the urgency tactic.
+
+
+Defense Actions
+======================================
+This email should be discarded and the link should not be clicked on.
+DKIM should be updated to move such email into trash instead of Inbox and the DKIM signature does not exist.
+Users should be educated on how to handle such emails.
+
+
