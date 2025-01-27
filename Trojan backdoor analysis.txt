@@ -1,0 +1,67 @@
+Headers
+======================================
+Date: Tuesday January 14th, 2020
+Subject: FW: Due Invoice Payment - protonmail.com - Wire Transfer Document
+
+To: wpx@protonmail.com
+From: Paol.Reggiani@moss.it
+
+Reply-To: NONE
+Return-Path: Paol.Reggiani@moss.it
+
+Sender IP: 213.227.154.65
+Resolve Host: mailin004.protonmail.ch
+
+Message-ID: 20200114000605.14F3983143C82AAA@moss.it
+
+
+URLs
+======================================
+NONE
+
+
+Attachments
+======================================
+Attachment Name:quotation.iso
+MD5: 6aef1d7f88e8aa450a0c604b4caee5ba
+SHA1: 3fe45f8cd20cd7c63e55e3918dac1d3a0d7fb05a
+SHA256: 75fdb848eac332b4ca7d88f497e7ba7ebbb9a798d825b28cf1f87b9d7149e87f
+
+
+Description
+======================================
+This email claims to be a message containing an Invoice for a payment regarding a service offered by the 
+target. The target was asked to urgently check the mail sent which contained an attachment in order for them
+to confirm their account details so the wire transfer could be made. 
+
+
+Artifact Analysis
+======================================
+Sender Analysis:
+Analysing the header, we could see the that the SPF authentication failed, which means that the sender
+is not authenticated to send email on behalf of the domain. The email does not have any DMARC or DKIM
+record.
+
+URL Analysis:
+NONE
+
+Attachment Analysis:
+The attachment was analysed using the emldump.py tool. 
+The name of the file is quotation.iso which according to the name seemed to be a qoutation report
+but after extracting the SHA256, SHA1, and MD5 hash values and doing further analysis, it turns out it is 
+a disc image file that is a trojan horse.
+
+
+
+Verdict
+======================================
+This email is malicious as it contains a trojan horse disc file that is a backdoor. According to analysis, 
+we discovered that it is a backdoor that the hacker intends on using to control the victims computer remotely
+most likely to form a network of computers that can be controlled from a central point.
+
+
+Defense Actions
+======================================
+1. Mail and mail attachment should be discarded
+2. Email firewall should be implemented in order to prevent getting such emails
+
